@@ -38,16 +38,17 @@ export default function FilterMoviesCard(props) {
       // eslint-disable-next-line
   }, []);
 
-  const handleChange = (e, type, value) => {
+   const handleChange = (e, type, value) => {
     e.preventDefault()
-    // Completed later
-  };
+    props.onUserInput(type, value)   
+  }
   const handleTextChange = e => {
     handleChange(e, "name", e.target.value)
   }
   const handleGenreChange = e => {
     handleChange(e, "genre", e.target.value)
   };
+
 
   return (
     <Card 
@@ -77,7 +78,18 @@ export default function FilterMoviesCard(props) {
         defaultValue=""
         value={props.genreFilter}
         onChange={handleGenreChange}
-        ></Select>
+        >
+
+      {genres.map((genre) => {
+        return (
+          <MenuItem key ={genre.id} value={genre.id}>
+            {genre.name}
+          </MenuItem>
+        );
+      })}
+
+      </Select>
+
         </FormControl>
       </CardContent>
       <CardMedia
