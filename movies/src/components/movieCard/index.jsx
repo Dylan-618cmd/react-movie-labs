@@ -16,7 +16,7 @@ import Grid from "@mui/material/Grid";
 import img from '../../images/film-poster-placeholder.png'
 import Avatar from '@mui/material/Avatar';
 
-export default function MovieCard({movie, action}) {
+export default function MovieCard({movie}) {
 
  const { favorites, addToFavorites } = useContext(MoviesContext);
 
