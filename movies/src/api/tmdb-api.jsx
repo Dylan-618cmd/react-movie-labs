@@ -87,3 +87,16 @@ export const getMovieReviews = ({ queryKey }) => {
       throw error
    });
   };
+
+export const getUpcomingMovies = async () => {
+    const url = 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1';
+  const options = {
+    headers: {
+      accept: 'application/json',
+      Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
+    },
+  };
+  const res = await fetch(url, options);
+  if (!res.ok) throw new Error('Failed to fetch upcoming movies');
+  return res.json();
+}
