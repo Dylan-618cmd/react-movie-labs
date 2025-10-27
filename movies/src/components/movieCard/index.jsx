@@ -15,6 +15,7 @@ import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid";
 import img from '../../images/film-poster-placeholder.png'
 import Avatar from '@mui/material/Avatar';
+import '../../styles/cardStyle.css';
 
 export default function MovieCard({movie, action}) {
 
