@@ -27,12 +27,15 @@ const HomePage = (props) => {
   localStorage.setItem('favorites', JSON.stringify(favorites))
   const addToFavorites = (movieId) => true 
 
-  return (
-    <PageTemplate
-      title='Discover Movies'
-      movies={movies}
-      selectFavorite={addToFavorites}
-    />
+   return (
+      <PageTemplate
+        title="Discover Movies"
+        movies={movies}
+        action={(movie) => {
+          return <AddToFavoritesIcon movie={movie} />
+        }}
+      />
   );
+  
 };
 export default HomePage;
