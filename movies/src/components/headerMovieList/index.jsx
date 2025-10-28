@@ -18,6 +18,8 @@ const Header = (props ) => {
         justifyContent: "space-around",
         flexWrap: "wrap",
         marginBottom: 1.5,
+        color: "white",
+        backgroundColor: "#190366ff",
       }}
       >
     

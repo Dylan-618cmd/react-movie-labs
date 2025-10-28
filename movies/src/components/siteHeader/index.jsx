@@ -11,6 +11,7 @@ import { useNavigate } from "react-router";
 import { styled } from '@mui/material/styles';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import "../../styles/headerStyle.css"
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
