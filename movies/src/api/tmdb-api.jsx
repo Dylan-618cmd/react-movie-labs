@@ -101,7 +101,7 @@ export const getUpcomingMovies = async () => {
   return res.json();
 };
 
-export const getTopRatedMovies = () => {
+export const getTopRatedMovies = async () => {
   const url = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1';
   const options = {
   method: 'GET',
@@ -111,11 +111,11 @@ export const getTopRatedMovies = () => {
   }
 };
 
-  return fetch(url, options)
-    .then((res) => res.json());
+  const res = await fetch(url, options);
+  return await res.json();
 }
 
-export const getCurrentlyShowing = () => {
+export const getCurrentlyShowing = async () => {
 
   const url = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';
   const options = {
@@ -126,21 +126,20 @@ export const getCurrentlyShowing = () => {
   }
 };
 
-  return fetch(url, options)
-    .then((res) => res.json());
+  const res = await fetch(url, options);
+  return await res.json();
 
 }
 
-export const getPopular = () => {
-  const url = 'https://api.themoviedb.org/3/tv/popular?language=en-US&page=1';
-  const options = {
+export const getPopular = async () => {
+const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
+const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
     Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`
   }
 };
-
- return fetch(url, options)
-    .then((res) => res.json());
+const res = await fetch(url, options);
+  return await res.json();
 }
