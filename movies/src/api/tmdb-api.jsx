@@ -130,3 +130,17 @@ export const getCurrentlyShowing = () => {
     .then((res) => res.json());
 
 }
+
+export const getPopular = () => {
+  const url = 'https://api.themoviedb.org/3/tv/popular?language=en-US&page=1';
+  const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`
+  }
+};
+
+ return fetch(url, options)
+    .then((res) => res.json());
+}
