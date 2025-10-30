@@ -9,7 +9,7 @@ import TextField from "@mui/material/TextField";
 import SearchIcon from "@mui/icons-material/Search";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import img from '../../images/pexels-dziana-hasanbekava-5480827.jpg'
+import img from '../../images/coolersky.jpg'
 import {getGenres} from "../../api/tmdb-api";
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../spinner';
@@ -68,7 +68,7 @@ export default function FilterMoviesCard(props) {
       <CardContent>
         <Typography variant="h5" component="h1">
           <SearchIcon fontSize="large" />
-          Filter the movies.
+          Filter movies.
         </Typography>
          <TextField
         sx={{...formControl}}
@@ -80,7 +80,7 @@ export default function FilterMoviesCard(props) {
         onChange={handleTextChange}
         />
         <FormControl sx={{...formControl}}>
-          <InputLabel id="genre-label">Genre</InputLabel>
+          <InputLabel id="genre-label"> Genre</InputLabel>
            <Select
         labelId="genre-label"
         id="genre-select"
@@ -109,7 +109,7 @@ export default function FilterMoviesCard(props) {
       <CardContent>
         <Typography variant="h5" component="h1">
           <SearchIcon fontSize="large" />
-          Filter the movies.
+          Filter movies.
           <br />
         </Typography>
       </CardContent>
