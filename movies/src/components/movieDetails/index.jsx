@@ -64,6 +64,7 @@ const [drawerOpen, setDrawerOpen] = useState(false);
         variant="extended"
         onClick={() =>setDrawerOpen(true)}
         sx={{
+          color: "#FFFFFF",
           position: 'fixed',
           bottom: '1em',
           right: '1em'
