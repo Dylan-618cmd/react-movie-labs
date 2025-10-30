@@ -33,7 +33,7 @@ export default function MovieCard({movie, action}) {
   };
 
   return (
-    <Card>
+    <Card sx={{backgroundColor: "#25013dff"}}>
            <CardHeader
         avatar={
           movie.favorite ? (
@@ -43,14 +43,14 @@ export default function MovieCard({movie, action}) {
           ) : null
         }
         title={
-          <Typography variant="h5" component="p">
+          <Typography variant="h5" component="p" sx={{color: "#d9b0ffff", backgroundColor: "#25013dff"}}>
             {movie.title}{" "}
           </Typography>
         }
       />
 
       <CardMedia
-        sx={{ height: 500 }}
+        sx={{ height: 500}}
         image={
           movie.poster_path
             ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
@@ -60,13 +60,13 @@ export default function MovieCard({movie, action}) {
       <CardContent>
         <Grid container>
           <Grid size={{xs: 6}}>
-            <Typography variant="h6" component="p">
+            <Typography variant="h6" component="p" sx={{color: "#d9b0ffff",}} >
               <CalendarIcon fontSize="small" />
               {movie.release_date}
             </Typography>
           </Grid>
           <Grid size={{xs: 6}}>
-            <Typography variant="h6" component="p">
+            <Typography variant="h6" component="p" sx={{color: "#d9b0ffff",}} >
               <StarRateIcon fontSize="small" />
               {"  "} {movie.vote_average}{" "}
             </Typography>
@@ -78,7 +78,7 @@ export default function MovieCard({movie, action}) {
         {action(movie)}
       
         <Link to={`/movies/${movie.id}`}>
-          <Button variant="outlined" size="medium" color="primary">
+          <Button variant="outlined" size="medium" color="#d9b0ffff">
             More Info ...
           </Button>
         </Link>
