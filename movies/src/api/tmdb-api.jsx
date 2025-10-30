@@ -145,7 +145,7 @@ const res = await fetch(url, options);
 }
 
 export const getReccomendations = async () => {
-  const url = 'https://api.themoviedb.org/3/movie/movie_id/recommendations?language=en-US&page=1';
+const url = 'https://api.themoviedb.org/3/movie/movie_id/recommendations?language=en-US&page=1';
 const options = {
   method: 'GET',
   headers: {
