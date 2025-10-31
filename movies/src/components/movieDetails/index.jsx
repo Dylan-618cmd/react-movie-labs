@@ -76,7 +76,19 @@ const [drawerOpen, setDrawerOpen] = useState(false);
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <MovieReviews movie={movie} />
       </Drawer>
+
+            <div>
+        <h1>Reccomendations for Movie {id} </h1>
+        <ul>
+          {movie.map(movie => (
+            <li key={movie.id}>{movie.title}</li>
+          ))}
+        </ul>
+      </div>
+      
       </>
+
+
   );
 };
 export default MovieDetails ;
