@@ -78,7 +78,7 @@ export default function FilterMoviesCard(props) {
           label="Year"
           type="number"
           variant="filled"
-          value={props.yearFilter}
+          value={props.yearFilter || ""}
           onChange={(e) => props.onUserInput("year", e.target.value)}
         />
 

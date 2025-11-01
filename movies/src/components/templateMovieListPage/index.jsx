@@ -16,13 +16,16 @@ function MovieListPageTemplate({ movies, title, action }) {
     })
     .filter((m) => {
       return genreId > 0 ? m.genre_ids.includes(genreId) : true;
+    })
+    .filter((m) => {
+      return yearFilter ?m.release_date?.slice(0,4) === String(yearFilter) : true;
     });
 
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);
     else if (type == "genre") setGenreFilter(value);
-    else if (type == "year") setYearFilter(value)
-;  };
+    else if (type == "year") setYearFilter(value);
+   };
 
   return (
     <Grid container>
