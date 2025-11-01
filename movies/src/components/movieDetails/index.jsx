@@ -38,32 +38,35 @@ const [drawerOpen, setDrawerOpen] = useState(false);
 
       <Paper 
         component="ul" 
-        sx={{...root}}
+        sx={{...root, backgroundColor: "#630857ff"}}
       >
         <li>
-          <Chip label="Genres" sx={{...chip}} color="primary" />
+          <Chip label="Genres" sx={{...chip, backgroundColor: "#FFFFFF"}}  />
         </li>
         {movie.genres.map((g) => (
           <li key={g.name}>
-            <Chip label={g.name} sx={{...chip}} />
+            <Chip label={g.name} sx={{...chip, backgroundColor: "#FFFFFF"}} />
           </li>
         ))}
       </Paper>
-      <Paper component="ul" sx={{...root}}>
-        <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
+      <Paper component="ul" sx={{...root, backgroundColor: "#630857ff"}}>
+        <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} sx={{backgroundColor: "#FFFFFF"}}  />
         <Chip
           icon={<MonetizationIcon />}
           label={`${movie.revenue.toLocaleString()}`}
+          sx={{backgroundColor: "#FFFFFF"}} 
         />
         <Chip
           icon={<StarRate />}
           label={`${movie.vote_average} (${movie.vote_count})`}
+          sx={{backgroundColor: "#FFFFFF"}} 
         />
-        <Chip label={`Released: ${movie.release_date}`} />
+        <Chip label={`Released: ${movie.release_date}`} sx={{backgroundColor: "#FFFFFF"}} />
       </Paper>
 
-<Stack direction="row" spacing={2} sx={{mt: 2, mb: 6}}>
+<Stack direction="row" spacing={2} sx={{mt: 2, mb: 6,}}>
   <Button
+    sx={{backgroundColor: "#190366ff"}}
     variant="contained"
     component={RouterLink}
     to={`/movies/${movie.id}/recommendations`}
