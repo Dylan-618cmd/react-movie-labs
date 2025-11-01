@@ -2,16 +2,16 @@ import React from "react";
 import { useParams } from 'react-router';
 import MovieDetails from "../components/movieDetails/";
 import PageTemplate from "../components/templateMoviePage";
-import { getMovie } from '../api/tmdb-api'
+import { getMovie, getRecommendations } from '../api/tmdb-api'
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner';
 
-const MoviePage = (props) => {
+const RecommendedPage = (props) => {
   const { id } = useParams();
  
   const { data: movie, error, isPending, isError  } = useQuery({
-    queryKey: ['movie', {id: id}],
-    queryFn: getMovie,
+    queryKey: ['recommendations', {id: id}],
+    queryFn: getRecommendations,
   })
 
   if (isPending) {
@@ -37,4 +37,4 @@ const MoviePage = (props) => {
   );
 };
 
-export default MoviePage;
+export default RecommendedPage;
