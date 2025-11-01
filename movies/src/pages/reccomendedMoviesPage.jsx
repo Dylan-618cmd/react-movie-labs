@@ -1,7 +1,5 @@
 import React from "react";
 import { useParams } from 'react-router';
-import MovieDetails from "../components/movieDetails/";
-import PageTemplate from "../components/templateMoviePage";
 import { getRecommendations } from '../api/tmdb-api'
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner';
@@ -32,7 +30,7 @@ const RecommendedPage = () => {
         Recommended Movies
       </Typography>
       {movies.length === 0 && <p>No recommendations found for this movie.</p>}
-      <MovieList movies={movies} />
+      <MovieList movies={movies} action={() => {}} />
     </>
   );
 };
