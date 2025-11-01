@@ -80,9 +80,7 @@ export default function FilterMoviesCard(props) {
           variant="filled"
           value={props.yearFilter}
           onChange={(e) => props.onUserInput("year", e.target.value)}
-        >
-
-        </TextField>
+        />
 
         <FormControl sx={{ ...formControl }}>
           <InputLabel id="genre-label">Genre</InputLabel>

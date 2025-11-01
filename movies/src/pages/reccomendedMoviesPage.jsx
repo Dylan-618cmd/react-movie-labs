@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from 'react-router';
 import { getRecommendations } from '../api/tmdb-api'
+import { getMovie } from "../api/tmdb-api";
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner';
 import MovieList from "../components/movieList";
@@ -26,8 +27,8 @@ const RecommendedPage = () => {
 
   return (
     <>
-      <Typography variant="h4" sx={{mb : 2}}>
-        Recommended Movies
+      <Typography variant="h4" sx={{mb : 0.5, textAlign: "center", padding: 4}}>
+        Recommended Movies 
       </Typography>
       {movies.length === 0 && <p>No recommendations found for this movie.</p>}
       <MovieList movies={movies} action={() => {}} />
