@@ -144,16 +144,9 @@ const res = await fetch(url, options);
   return await res.json();
 }
 
-export const getRecommendations = async () => {
-const url = 'https://api.themoviedb.org/3/movie/movie_id/recommendations?language=en-US&page=1';
-const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-   Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`
-  }
-};
-
-const res = await fetch(url, options);
+export const getRecommendations = async ({queryKey}) => {
+const [, {id}] = queryKey
+const url = `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&page=1`;
+const res = await fetch(url);
   return await res.json();
 }

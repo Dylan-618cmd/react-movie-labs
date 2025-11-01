@@ -9,6 +9,8 @@ import StarRate from "@mui/icons-material/StarRate";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
+import {Button, Stack} from "@mui/material";
+import { Link as RouterLink } from "react-router";
 
 
 const root = {
@@ -59,6 +61,17 @@ const [drawerOpen, setDrawerOpen] = useState(false);
         />
         <Chip label={`Released: ${movie.release_date}`} />
       </Paper>
+
+<Stack direction="row" spacing={2} sx={{mt: 2, mb: 6}}>
+  <Button
+    variant="contained"
+    component={RouterLink}
+    to={`/movies/${movie.id}/recommendations`}
+  >
+    Reccomendations
+  </Button>
+</Stack>
+
   <Fab
         color="secondary"
         variant="extended"
@@ -77,11 +90,7 @@ const [drawerOpen, setDrawerOpen] = useState(false);
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <MovieReviews movie={movie} />
       </Drawer>
-
-      
       </>
-
-
   );
 };
-export default MovieDetails ;
+export default MovieDetails;

@@ -2,14 +2,16 @@ import React from "react";
 import { useParams } from 'react-router';
 import MovieDetails from "../components/movieDetails/";
 import PageTemplate from "../components/templateMoviePage";
-import { getMovie, getRecommendations } from '../api/tmdb-api'
+import { getRecommendations } from '../api/tmdb-api'
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner';
+import MovieList from "../components/movieList";
+import Typography from "@mui/material/Typography";
 
-const RecommendedPage = (props) => {
+const RecommendedPage = () => {
   const { id } = useParams();
  
-  const { data: movie, error, isPending, isError  } = useQuery({
+  const { data, error, isPending, isError  } = useQuery({
     queryKey: ['recommendations', {id: id}],
     queryFn: getRecommendations,
   })
@@ -22,17 +24,15 @@ const RecommendedPage = (props) => {
     return <h1>{error.message}</h1>;
   }
 
+ const movies = data?.results || [];
+
   return (
     <>
-      {movie ? (
-        <>
-          <PageTemplate movie={movie}>
-            <MovieDetails movie={movie} />
-          </PageTemplate>
-        </>
-      ) : (
-        <p>Waiting for movie details</p>
-      )}
+      <Typography variant="h4" sx={{mb : 2}}>
+        Recommended Movies
+      </Typography>
+      {movies.length === 0 && <p>No recommendations found for this movie.</p>}
+      <MovieList movies={movies} />
     </>
   );
 };
