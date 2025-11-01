@@ -21,14 +21,6 @@ const UpcomingMoviesPage = () => {
     return <h1>{error.message}</h1>
   }  
   
-const url = 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1';
-const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`
-  }
-};
 
 const movies = data.results;
 
